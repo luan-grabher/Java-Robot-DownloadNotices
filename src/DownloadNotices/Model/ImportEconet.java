@@ -74,8 +74,8 @@ public class ImportEconet {
                     notices.add(
                             new String[]{
                                 sqlDateFormat.format(lastDate.getTime()),
-                                title,
-                                href
+                                href,
+                                title
                             }
                     );
                     
