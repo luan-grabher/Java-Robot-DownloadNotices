@@ -168,6 +168,37 @@ public class Controller {
     }
     
     /**
+     * Importa notícias do Contabeis
+     */
+    public class importNoticesFromContabilidadeNaTV extends Executavel {
+
+        public importNoticesFromContabilidadeNaTV() {
+            name =  "Importar noticias site Contabilidade na TV";
+        }
+
+        @Override
+        public void run() {
+            //URL Variables
+            String url = "https://www.contabilidadenatv.com.br/categoria/noticias-contabeis/page/";
+            
+            ImportWebSiteNotices importation =  new ImportWebSiteNotices(chrome, url);
+            
+            importation.setDateAttribute("datetime");
+            importation.setDateFormat("yyyy-MM-d");
+            
+            importation.setNoticesBy(By.cssSelector(".td_module_10"));
+            
+            
+            importation.setDateBy(By.cssSelector("div.item-details > div.td-module-meta-info > span.td-post-date > time"));            
+            importation.setHrefBy(By.cssSelector("div.item-details > h3 > a"));
+            importation.setNameBy(By.cssSelector("div.item-details > h3 > a"));
+            
+            importation.getNoticesFromUrl();
+            importation.importToDb(banco);
+        }
+    }
+    
+    /**
      * Importa notícias do Econet
      */
     public class importNoticesFromEconet extends Executavel {

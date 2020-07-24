@@ -35,6 +35,7 @@ public class DownloadNotices {
           execs.add(controller.new importNoticesFromSesconRS());
           execs.add(controller.new importNoticesFromCRCRS());
           execs.add(controller.new importNoticesFromContabeis());
+          execs.add(controller.new importNoticesFromContabilidadeNaTV());
           execs.add(controller.new importNoticesFromEconet("trabalhista"));
           execs.add(controller.new importNoticesFromEconet("federal"));
           execs.add(controller.new importNoticesFromEconet("rio_grande_do_sul"));
