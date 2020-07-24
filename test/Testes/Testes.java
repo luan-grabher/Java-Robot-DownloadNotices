@@ -6,7 +6,7 @@ import static DownloadNotices.DownloadNotices.executar;
 public class Testes {
     
     public static void main(String [] args){
-        testSite();
+        application();
         
         System.exit(0);
     }
