@@ -8,7 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chromeclass.SeleniumChrome;
 import org.openqa.selenium.wait.wait;
-import sql.Banco;
+import sql.Database;
 
 public class ImportWebSiteNotices {
     private final SimpleDateFormat sqlDateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -103,7 +103,7 @@ public class ImportWebSiteNotices {
         }
     }
 
-    public void importToDb(Banco banco) {
+    public void importToDb(Database banco) {
         notices.importToDb(banco);
     }
 }

@@ -7,7 +7,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import sql.Banco;
+import sql.Database;
 
 public class ImportEconet {
 
@@ -88,7 +88,7 @@ public class ImportEconet {
         }
     }
 
-    public void importToDb(Banco banco) {
+    public void importToDb(Database banco) {
         notices.importToDb(banco);
     }
 

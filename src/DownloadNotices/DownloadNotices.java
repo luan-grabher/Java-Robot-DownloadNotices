@@ -41,8 +41,8 @@ public class DownloadNotices {
           execs.add(controller.new importNoticesFromEconet("portoalegre"));
           
           Execution exec = new Execution(nome);
-          exec.setExecutaveis(execs);
-          exec.rodarExecutaveis();
+          exec.setExecutables(execs);
+          exec.runExecutables();
           
           r = exec.getRetorno();
             

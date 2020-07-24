@@ -3,42 +3,41 @@ package DownloadNotices.Control;
 import DownloadNotices.Model.ImportEconet;
 import DownloadNotices.Model.ImportWebSiteNotices;
 import Entity.Executavel;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.List;
-import java.util.Locale;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chromeclass.SeleniumChrome;
-import org.openqa.selenium.wait.wait;
-import sql.Banco;
+import sql.Database;
 
 public class Controller {
 
     private SeleniumChrome chrome;
-    private Banco banco;
+    private Database banco;
     private String mysqlPath = "\\\\zac\\robos\\Tarefas\\Arquivos\\mysql.cfg";
 
+    /**
+     * Cria conexão com o banco de dados ZAC
+     */
     public class connectDataBase extends Executavel {
 
         public connectDataBase() {
-            nome = "Conectar ao banco de dados";
+            name =  "Conectar ao banco de dados";
         }
 
         @Override
         public void run() {
-            banco = new Banco(mysqlPath);
+            banco = new Database(mysqlPath);
             if (!banco.testConnection()) {
                 throw new Error("Erro ao conectar no banco de dados no arquivo: " + mysqlPath);
             }
         }
     }
 
+    /**
+     * Abre o navegador
+     */
     public class openChrome extends Executavel {
 
         public openChrome() {
-            nome = "Abrir navegador Chrome";
+            name =  "Abrir navegador Chrome";
         }
 
         @Override
@@ -48,10 +47,13 @@ public class Controller {
         }
     }
 
+    /**
+     * Importa notícias do Fenacon
+     */
     public class importNoticesFromFenacon extends Executavel {
 
         public importNoticesFromFenacon() {
-            nome = "Importar noticias Fenacon";
+            name =  "Importar noticias Fenacon";
         }
 
         @Override
@@ -75,10 +77,13 @@ public class Controller {
         }
     }
     
+    /**
+     * Importa notícias do SesconRs
+     */
     public class importNoticesFromSesconRS extends Executavel {
 
         public importNoticesFromSesconRS() {
-            nome = "Importar noticias Sescon RS";
+            name =  "Importar noticias Sescon RS";
         }
 
         @Override
@@ -102,10 +107,13 @@ public class Controller {
         }
     }
     
+    /**
+     * Importa notícias do CRCRS
+     */
     public class importNoticesFromCRCRS extends Executavel {
 
         public importNoticesFromCRCRS() {
-            nome = "Importar noticias CRCRS";
+            name =  "Importar noticias CRCRS";
         }
 
         @Override
@@ -129,10 +137,13 @@ public class Controller {
         }
     }
     
+    /**
+     * Importa notícias do Contabeis
+     */
     public class importNoticesFromContabeis extends Executavel {
 
         public importNoticesFromContabeis() {
-            nome = "Importar noticias site Contabeis";
+            name =  "Importar noticias site Contabeis";
         }
 
         @Override
@@ -156,11 +167,14 @@ public class Controller {
         }
     }
     
+    /**
+     * Importa notícias do Econet
+     */
     public class importNoticesFromEconet extends Executavel {
         private String path;
         public importNoticesFromEconet(String path) {
             this.path = path;
-            nome = "Importar sintese Econet " + path;
+            name =  "Importar sintese Econet " + path;
         }
 
         @Override
@@ -175,6 +189,9 @@ public class Controller {
         }
     }
 
+    /**
+     * Fecha o Chrome
+     */
     public void closeChrome() {
         chrome.fecharChrome();
     }

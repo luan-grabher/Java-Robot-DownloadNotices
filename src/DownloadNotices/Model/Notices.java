@@ -3,7 +3,7 @@ package DownloadNotices.Model;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import sql.Banco;
+import sql.Database;
 
 public class Notices {
     private final Integer limitDays = 10;
@@ -24,7 +24,7 @@ public class Notices {
         return notice;
     }
 
-    public void importToDb(Banco banco) {
+    public void importToDb(Database banco) {
         //For each notices
         for (String[] notice : notices) {
             if (notice.length == 3) {
