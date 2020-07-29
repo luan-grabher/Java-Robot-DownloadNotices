@@ -81,23 +81,26 @@ public class ImportWebSiteNotices {
             //Percorre noticias
             for (WebElement element : elements) {
                 //Get Date
-                WebElement dateElement = element.findElement(dateBy);
-                lastAddedDate = Dates.getCalendarFromFormat(dateElement.getAttribute(dateAttribute), dateFormat);
+                WebElement dateElement = wait.element(chrome.getChrome(), dateBy);
+                
+                if(dateElement != null){
+                    lastAddedDate = Dates.getCalendarFromFormat(dateElement.getAttribute(dateAttribute), dateFormat);
 
-                if (lastAddedDate.after(notices.getCalendarLimit())) {
-                    String href = element.findElement(hrefBy).getAttribute("href");
-                    String name = element.findElement(nameBy).getAttribute("innerHTML");
-                    String dateString = sqlDateFormat.format(lastAddedDate.getTime());
+                    if (lastAddedDate.after(notices.getCalendarLimit())) {
+                        String href = element.findElement(hrefBy).getAttribute("href");
+                        String name = element.findElement(nameBy).getAttribute("innerHTML");
+                        String dateString = sqlDateFormat.format(lastAddedDate.getTime());
 
-                    notices.add(
-                            new String[]{
-                                dateString,
-                                href,
-                                name
-                            }
-                    );
-                } else {
-                    break;
+                        notices.add(
+                                new String[]{
+                                    dateString,
+                                    href,
+                                    name
+                                }
+                        );
+                    } else {
+                        break;
+                    }
                 }
             }
         }
