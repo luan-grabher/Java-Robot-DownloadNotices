@@ -101,6 +101,12 @@ public class ImportWebSiteNotices {
                     } else {
                         break;
                     }
+                }else{
+                    if(lastAddedDate == null){
+                        lastAddedDate = notices.getCalendarLimit();
+                        lastAddedDate.add(Calendar.DAY_OF_MONTH, 1);
+                        break;
+                    }
                 }
             }
         }

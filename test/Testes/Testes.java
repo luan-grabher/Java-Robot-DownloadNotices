@@ -6,7 +6,7 @@ import static DownloadNotices.DownloadNotices.executar;
 public class Testes {
     
     public static void main(String [] args){
-        application();
+        testSite();
         
         System.exit(0);
     }
@@ -21,6 +21,6 @@ public class Testes {
             
             controller.new connectDataBase().run();
             controller.new openChrome().run();
-            controller.new importNoticesFromContabilidadeNaTV().run();
+            controller.new importNoticesFromSesconRS().run();
     }
 }
