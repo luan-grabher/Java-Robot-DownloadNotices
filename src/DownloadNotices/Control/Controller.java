@@ -158,7 +158,7 @@ public class Controller {
             
             importation.setNoticesBy(By.cssSelector(".texto"));
             
-            importation.setDateBy(By.cssSelector("em"));            
+            importation.setDateBy(By.cssSelector("em.timestamp"));            
             importation.setHrefBy(By.cssSelector("ul"));
             importation.setNameBy(By.cssSelector("h2"));
             

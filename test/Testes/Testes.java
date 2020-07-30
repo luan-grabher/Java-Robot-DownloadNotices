@@ -21,6 +21,7 @@ public class Testes {
             
             controller.new connectDataBase().run();
             controller.new openChrome().run();
-            controller.new importNoticesFromSesconRS().run();
+            controller.new importNoticesFromContabeis().run();
+            controller.closeChrome();
     }
 }

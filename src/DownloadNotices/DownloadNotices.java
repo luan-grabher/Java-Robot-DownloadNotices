@@ -4,7 +4,6 @@ import DownloadNotices.Control.Controller;
 import Entity.Executavel;
 import Executor.Execution;
 import Robo.AppRobo;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,13 +12,9 @@ public class DownloadNotices {
       
         String nome = "Baixar Noticias";
         
-        AppRobo robo = new AppRobo(nome);
+        AppRobo robo = new AppRobo(nome);               
         
-        
-        robo.setLocalRetorno(new File("./test"));
-        robo.definirParametros("");
-        
-        //robo.definirParametros();
+        robo.definirParametros();
                 
         robo.executar(
                 executar(nome)

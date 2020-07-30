@@ -84,9 +84,10 @@ public class ImportWebSiteNotices {
                 WebElement dateElement = wait.element(chrome.getChrome(), dateBy);
                 
                 if(dateElement != null){
-                    lastAddedDate = Dates.getCalendarFromFormat(dateElement.getAttribute(dateAttribute), dateFormat);
+                    String dateElementAttribute = dateElement.getAttribute(dateAttribute);
+                    lastAddedDate = Dates.getCalendarFromFormat(dateElementAttribute, dateFormat);
 
-                    if (lastAddedDate.after(notices.getCalendarLimit())) {
+                    if (lastAddedDate != null && lastAddedDate.after(notices.getCalendarLimit())) {
                         String href = element.findElement(hrefBy).getAttribute("href");
                         String name = element.findElement(nameBy).getAttribute("innerHTML");
                         String dateString = sqlDateFormat.format(lastAddedDate.getTime());

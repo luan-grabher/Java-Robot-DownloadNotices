@@ -9,7 +9,7 @@ public class Notices {
     private final Integer limitDays = 10;
     private final Calendar calendarLimit = Calendar.getInstance();
 
-    private List<String[]> notices = new ArrayList<>();
+    private final List<String[]> notices = new ArrayList<>();
 
     public Notices() {
         calendarLimit.add(Calendar.DAY_OF_MONTH, - limitDays);
