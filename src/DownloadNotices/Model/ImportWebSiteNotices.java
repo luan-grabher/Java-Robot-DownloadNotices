@@ -103,14 +103,24 @@ public class ImportWebSiteNotices {
                         break;
                     }
                 }else{
+                    //Se não encontrar a data na página e não tiver sido encontrado nenhuma data ainda, para tudo
                     if(lastAddedDate == null){
-                        lastAddedDate = notices.getCalendarLimit();
-                        lastAddedDate.add(Calendar.DAY_OF_MONTH, 1);
+                        breakLastDate();
                         break;
                     }
                 }
             }
+        }else{
+            //Se nao encontrar noticias e já estiver mais da 3 pagina, para por aqui
+            if(page > 3){
+                breakLastDate();
+            }
         }
+    }
+    
+    private void breakLastDate(){
+        lastAddedDate = notices.getCalendarLimit();
+        lastAddedDate.add(Calendar.DAY_OF_MONTH, 1);
     }
 
     public void importToDb(Database banco) {
